@@ -99,6 +99,145 @@
   color: var(--text);
 }
 
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+  .payment-wrapper {
+    padding: 60px 15px 30px;
+  }
+  
+  .payment-header h1 {
+    font-size: 24px;
+  }
+  
+  .payment-header p {
+    font-size: 13px;
+  }
+}
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  .payment-wrapper {
+    padding: 50px 12px 25px;
+  }
+  
+  .payment-container {
+    max-width: 100%;
+  }
+  
+  .payment-header {
+    margin-bottom: 20px;
+  }
+  
+  .payment-header h1 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  
+  .payment-header p {
+    font-size: 12px;
+  }
+  
+  .payment-summary-card,
+  .payment-details-card {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .payment-summary-card h2,
+  .payment-details-card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .payment-summary-row {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  .payment-wrapper {
+    padding: 40px 10px 20px;
+    min-height: auto;
+  }
+  
+  .payment-center {
+    padding: 40px 15px;
+  }
+  
+  .payment-header {
+    margin-bottom: 15px;
+  }
+  
+  .payment-header h1 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .payment-header p {
+    font-size: 11px;
+  }
+  
+  .payment-summary-card,
+  .payment-details-card {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+  
+  .payment-summary-card:hover,
+  .payment-details-card:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  }
+  
+  .payment-summary-card h2,
+  .payment-details-card h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .payment-summary-row {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+  
+  .payment-method-btn {
+    padding: 10px 15px;
+    font-size: 13px;
+    margin: 6px 4px;
+  }
+}
+
+/* Extra Small: 360px and below */
+@media (max-width: 360px) {
+  .payment-wrapper {
+    padding: 35px 8px 15px;
+  }
+  
+  .payment-header h1 {
+    font-size: 16px;
+  }
+  
+  .payment-summary-card,
+  .payment-details-card {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .payment-method-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+    margin: 4px 2px;
+  }
+}
+
 .payment-summary-row:last-child {
   border-bottom: none;
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useTheme } from "../context/ThemeContext";
 import { API_URL } from "../config/api";
+import "./Account.css";
 
 // Helper function to get CSS variable values
 const getCSSVar = (varName) => {

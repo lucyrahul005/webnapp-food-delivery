@@ -98,6 +98,142 @@
   opacity: 0.5;
 }
 
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+  .checkout-wrapper {
+    padding: 30px 15px;
+  }
+  
+  .checkout-container {
+    gap: 20px;
+  }
+  
+  .checkout-card,
+  .checkout-summary {
+    flex: 1 1 100%;
+    min-width: 100%;
+    padding: 20px;
+  }
+}
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  .checkout-wrapper {
+    padding: 20px 10px;
+    align-items: flex-start;
+  }
+  
+  .checkout-container {
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+  }
+  
+  .checkout-card,
+  .checkout-summary {
+    flex: 1 1 100%;
+    min-width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+  }
+  
+  .checkout-heading {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .checkout-input,
+  .checkout-textarea {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .checkout-input:focus,
+  .checkout-textarea:focus {
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  .checkout-wrapper {
+    padding: 15px 8px;
+  }
+  
+  .checkout-container {
+    gap: 10px;
+  }
+  
+  .checkout-card,
+  .checkout-summary {
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+  
+  .checkout-card:hover,
+  .checkout-summary:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .checkout-heading {
+    font-size: 16px;
+    margin-bottom: 12px;
+    gap: 6px;
+  }
+  
+  .checkout-input,
+  .checkout-textarea {
+    padding: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  
+  .checkout-label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: block;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-row input {
+    flex: 1;
+  }
+}
+
+/* Extra Small: 360px and below */
+@media (max-width: 360px) {
+  .checkout-wrapper {
+    padding: 12px 6px;
+  }
+  
+  .checkout-card,
+  .checkout-summary {
+    padding: 10px;
+  }
+  
+  .checkout-heading {
+    font-size: 14px;
+  }
+  
+  .checkout-input,
+  .checkout-textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
 .checkout-textarea {
   min-height: 80px;
   resize: none;

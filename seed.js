@@ -15,7 +15,7 @@ const restaurants = [
   {
     name: "Burger Paradise",
     description: "Premium burgers with fresh ingredients",
-    image: "https://images.unsplash.com/photo-1568901346375-23c9450fc58e?w=900&auto=format&fit=crop&q=60",
+    image: "https://plus.unsplash.com/premium_photo-1683619761468-b06992704398?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVyZ2VyfGVufDB8fDB8fHww",
     cuisine: ["Burgers", "Fast Food", "American"],
     rating: 4.7,
     deliveryTime: "20 min",
@@ -67,7 +67,7 @@ const restaurants = [
   {
     name: "Cafe Mocha",
     description: "Beverages and light snacks cafe",
-    image: "https://images.unsplash.com/photo-1445521458563-7cda5fc27440?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhZmV8ZW58MHx8MHx8fDA%3D",
     cuisine: ["Drinks", "Cafe", "Snacks"],
     rating: 4.4,
     deliveryTime: "10 min",
@@ -93,7 +93,7 @@ const restaurants = [
   {
     name: "BBQ Barn",
     description: "Smoky BBQ meats and grilled specialties",
-    image: "https://images.unsplash.com/photo-1555939594-58d7cb561404?w=900&auto=format&fit=crop&q=60",
+    image: "https://plus.unsplash.com/premium_photo-1667443306658-4664947ffa46?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFyYmVxdWV8ZW58MHx8MHx8fDA%3D",
     cuisine: ["BBQ", "Grilled", "American"],
     rating: 4.6,
     deliveryTime: "30 min",
@@ -106,7 +106,7 @@ const restaurants = [
   {
     name: "Tandoori Kitchen",
     description: "Authentic Indian tandoori specialties",
-    image: "https://images.unsplash.com/photo-1501050108064-b351b3e906e1?w=900&auto=format&fit=crop&q=60",
+    image: "https://plus.unsplash.com/premium_photo-1669245207961-0281fd9396eb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGFuZG9vcmklMjBjaGlja2VufGVufDB8fDB8fHww",
     cuisine: ["Indian", "Tandoori", "Spicy"],
     rating: 4.7,
     deliveryTime: "25 min",
@@ -132,7 +132,7 @@ const restaurants = [
   {
     name: "Dragon Wok",
     description: "Asian fusion and noodle specialties",
-    image: "https://images.unsplash.com/photo-1609501676725-7186f017a4b5?w=900&auto=format&fit=crop&q=60",
+    image: "https://plus.unsplash.com/premium_photo-1664391771710-4f7eb2a4649a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bm9vZGxlcyUyMGZyaWVkJTIwcmljZXxlbnwwfHwwfHx8MA%3D%3D",
     cuisine: ["Asian", "Chinese", "Noodles"],
     rating: 4.5,
     deliveryTime: "20 min",
@@ -158,7 +158,7 @@ const restaurants = [
   {
     name: "Taco Town",
     description: "Mexican street food and authentic tacos",
-    image: "https://images.unsplash.com/photo-1565143666747-b9d0b1be0ba9?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFjb3xlbnwwfHwwfHx8MA%3D%3D",
     cuisine: ["Mexican", "Tacos", "Street Food"],
     rating: 4.6,
     deliveryTime: "18 min",
@@ -197,7 +197,7 @@ const restaurants = [
   {
     name: "Fish & Chips Co",
     description: "Seafood favorites and fish specialties",
-    image: "https://images.unsplash.com/photo-1579227114347-146e6586585a?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1665401015549-712c0dc5ef85?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmlzaCUyMGZyeXxlbnwwfHwwfHx8MA%3D%3D",
     cuisine: ["Seafood", "Fish", "British"],
     rating: 4.5,
     deliveryTime: "22 min",
@@ -223,7 +223,7 @@ const restaurants = [
   {
     name: "Smoothie Station",
     description: "Fresh smoothies and healthy bowls",
-    image: "https://images.unsplash.com/photo-1590955957529-a3a6e6f98cff?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1600718374662-0483d2b9da44?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNtb290aGllfGVufDB8fDB8fHww",
     cuisine: ["Smoothies", "Healthy", "Breakfast"],
     rating: 4.4,
     deliveryTime: "12 min",
@@ -236,7 +236,7 @@ const restaurants = [
   {
     name: "Biryani Nights",
     description: "Traditional biryani and rice dishes",
-    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1697155406055-2db32d47ca07?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmlyeWFuaXxlbnwwfHwwfHx8MA%3D%3D",
     cuisine: ["Indian", "Biryani", "Asian"],
     rating: 4.7,
     deliveryTime: "28 min",
@@ -249,7 +249,7 @@ const restaurants = [
   {
     name: "Grill House",
     description: "Premium grilled steaks and meats",
-    image: "https://images.unsplash.com/photo-1555939594-58d7cb561404?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1592011432621-f7f576f44484?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JpbGxlZCUyMGNoaWNrZW58ZW58MHx8MHx8fDA%3D",
     cuisine: ["Steaks", "Grilled", "American"],
     rating: 4.8,
     deliveryTime: "30 min",
@@ -262,7 +262,7 @@ const restaurants = [
   {
     name: "Wrap & Roll",
     description: "Fresh wraps and healthy bowls",
-    image: "https://images.unsplash.com/photo-1585238341710-4b4e6784d071?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1762631383612-ee9366e58431?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJvbGwlMjBjaGlja2VufGVufDB8fDB8fHww",
     cuisine: ["Wraps", "Healthy", "Vegetarian"],
     rating: 4.5,
     deliveryTime: "15 min",
@@ -305,7 +305,7 @@ const foods = [
     name: "Veg Burger",
     price: 110,
     description: "Crispy veg patty with fresh lettuce and mayo",
-    image: "https://images.unsplash.com/photo-1550547660-d9450f859450?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnJTIwYnVyZ2VyfGVufDB8fDB8fHww",
     category: "burger",
     isVeg: true,
     spicyLevel: "medium",
@@ -586,7 +586,7 @@ const foods = [
     name: "Biryani",
     price: 280,
     description: "Fragrant royal biryani",
-    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmlyeWFuaXxlbnwwfHwwfHx8MA%3D%3D",
     category: "rice",
     isVeg: false,
     spicyLevel: "high",
@@ -598,7 +598,7 @@ const foods = [
     name: "Veg Biryani",
     price: 220,
     description: "Aromatic vegetable biryani",
-    image: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=900&auto=format&fit=crop&q=60",
+    image: "https://images.unsplash.com/photo-1630409346824-4f0e7b080087?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnJTIwYmlyeWFuaXxlbnwwfHwwfHx8MA%3D%3D",
     category: "rice",
     isVeg: true,
     spicyLevel: "medium",

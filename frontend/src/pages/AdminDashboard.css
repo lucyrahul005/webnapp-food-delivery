@@ -811,6 +811,228 @@
   }
 }
 
+/* ============================================
+   ENHANCED MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  .admin-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 85vw;
+    max-width: 180px;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 0.75rem;
+  }
+
+  .brand-box {
+    padding: 0.6rem;
+    margin-bottom: 0.7rem;
+    border-radius: 10px;
+  }
+
+  .brand-box h1 {
+    font-size: 0.9rem;
+  }
+
+  .brand-box p {
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+  }
+
+  .sidebar-revenue {
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .sidebar-revenue span {
+    font-size: 0.75rem;
+  }
+
+  .sidebar-link {
+    padding: 0.55rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .admin-main {
+    padding: 0.6rem;
+  }
+
+  .glass-panel {
+    padding: 0.6rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(6, 12, 24, 0.2);
+  }
+
+  .admin-header {
+    flex-direction: column;
+    padding: 0.75rem;
+    gap: 0.6rem;
+  }
+
+  .admin-header h2 {
+    font-size: 1rem;
+  }
+
+  .admin-header p {
+    font-size: 0.8rem;
+  }
+
+  .metrics-strip {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 0.6rem;
+  }
+
+  .metric-pill {
+    padding: 0.7rem;
+    border-radius: 12px;
+  }
+
+  .metric-pill span {
+    font-size: 0.7rem;
+  }
+
+  .metric-pill strong {
+    font-size: 0.95rem;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.7rem;
+  }
+
+  .stat-card {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .stat-card p {
+    font-size: 0.75rem;
+  }
+
+  .stat-card h3 {
+    font-size: 1.1rem;
+    margin: 0.3rem 0 0;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .panel-head {
+    padding: 0.8rem 0.8rem 0;
+    gap: 0.5rem;
+  }
+
+  .panel-head h3 {
+    font-size: 0.95rem;
+  }
+
+  .panel-head span {
+    font-size: 0.75rem;
+  }
+
+  .table-grid,
+  .table-grid.two-col {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .simple-list {
+    padding: 0.6rem 0.75rem 0.8rem;
+    gap: 0.5rem;
+  }
+
+  .simple-item {
+    gap: 0.75rem;
+    padding: 0.6rem;
+    border-radius: 10px;
+  }
+
+  .simple-item strong {
+    font-size: 0.85rem;
+  }
+
+  .simple-item p {
+    font-size: 0.7rem;
+    margin-top: 0.15rem;
+  }
+
+  .request-list {
+    padding: 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .request-card {
+    gap: 0.6rem;
+    padding: 0.6rem;
+    border-radius: 10px;
+  }
+
+  .request-card p {
+    font-size: 0.75rem;
+    margin-top: 0.15rem;
+  }
+
+  .btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    border-radius: 8px;
+  }
+
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.6rem;
+  }
+
+  .table-row span {
+    font-size: 0.7rem;
+  }
+
+  .payment-transactions-table .table-header {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.65rem;
+    font-size: 0.7rem;
+  }
+
+  .payment-transactions-table .table-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.6rem;
+  }
+
+  .payment-transactions-table .mono {
+    font-size: 0.75rem;
+  }
+
+  .payment-transactions-table .badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .payment-transactions-table .status-badge {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+  }
+
+  .admin-bg-shape {
+    display: none;
+  }
+}
+
 /* Payment Transactions Table */
 .payment-transactions-table {
   display: flex;

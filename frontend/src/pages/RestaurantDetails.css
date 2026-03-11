@@ -100,6 +100,174 @@
   font-weight: 500;
 }
 
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+  .restaurant-hero {
+    height: 250px;
+  }
+
+  .restaurant-details {
+    padding: 25px 4%;
+  }
+
+  .restaurant-details h1 {
+    font-size: 24px;
+    margin: 15px 0 8px 0;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .detail-item {
+    padding: 12px;
+  }
+
+  .detail-item .icon {
+    font-size: 16px;
+  }
+}
+
+/* Tablet: 768px and below */
+@media (max-width: 768px) {
+  .back-button {
+    top: 15px;
+    left: 15px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .restaurant-hero {
+    height: 200px;
+  }
+
+  .restaurant-details {
+    padding: 20px 3%;
+  }
+
+  .restaurant-details h1 {
+    font-size: 20px;
+    margin: 12px 0 6px 0;
+  }
+
+  .restaurant-details .description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    margin: 15px 0;
+  }
+
+  .detail-item {
+    padding: 10px;
+    border-radius: 6px;
+    border-left-width: 2px;
+    gap: 10px;
+  }
+
+  .detail-item .icon {
+    font-size: 14px;
+  }
+
+  .detail-item .label {
+    font-size: 11px;
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  .restaurant-details-container {
+    min-height: auto;
+  }
+
+  .back-button {
+    top: 12px;
+    left: 12px;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  .restaurant-hero {
+    height: 160px;
+  }
+
+  .restaurant-details {
+    padding: 1.25rem 1rem;
+  }
+
+  .restaurant-details h1 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  .restaurant-details .description {
+    font-size: 0.8rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.5;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 1.25rem 0;
+  }
+
+  .detail-item {
+    padding: 0.85rem;
+    border-radius: 6px;
+    border-left-width: 2px;
+    gap: 0.75rem;
+  }
+
+  .detail-item .icon {
+    font-size: 0.95rem;
+  }
+
+  .detail-item .label {
+    font-size: 0.75rem;
+  }
+
+  .detail-item .value {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small: 360px and below */
+@media (max-width: 360px) {
+  .restaurant-hero {
+    height: 140px;
+  }
+
+  .restaurant-details {
+    padding: 1rem 0.75rem;
+  }
+
+  .restaurant-details h1 {
+    font-size: 1rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin: 1rem 0;
+  }
+
+  .detail-item {
+    padding: 0.75rem;
+  }
+}
+}
+
 .detail-item .value {
   font-size: 16px;
   font-weight: 600;

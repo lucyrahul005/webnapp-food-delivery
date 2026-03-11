@@ -324,4 +324,133 @@
   .logo-icon {
     font-size: 1.5rem;
   }
+
+  .navbar-search {
+    max-width: 250px;
+  }
+
+  .search-form {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .search-input {
+    font-size: 0.85rem;
+  }
+
+  .navbar-links {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile: 480px and below */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0.4rem 0.5rem;
+    gap: 0.75rem;
+  }
+
+  .navbar-logo {
+    gap: 0.2rem;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .logo-icon {
+    font-size: 1.2rem;
+  }
+
+  .navbar-search {
+    max-width: 150px;
+  }
+
+  .search-form {
+    padding: 0.35rem 0.6rem;
+    border-radius: 0.5rem;
+  }
+
+  .search-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: 0.35rem;
+  }
+
+  .search-input {
+    font-size: 0.75rem;
+  }
+
+  .search-input::placeholder {
+    font-size: 0.75rem;
+  }
+
+  .navbar-links {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .profile-section {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .profile-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .dropdown-menu {
+    min-width: 140px;
+    font-size: 0.8rem;
+  }
+
+  .dropdown-item {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra Small: 360px and below */
+@media (max-width: 360px) {
+  .navbar-container {
+    padding: 0.35rem 0.4rem;
+  }
+
+  .logo-text {
+    font-size: 0.9rem;
+  }
+
+  .logo-icon {
+    font-size: 1rem;
+  }
+
+  .navbar-search {
+    max-width: 120px;
+  }
+
+  .search-form {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .search-input {
+    font-size: 0.7rem;
+  }
+
+  .navbar-links {
+    gap: 0.75rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+  }
 }
