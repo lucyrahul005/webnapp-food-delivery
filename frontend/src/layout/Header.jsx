@@ -1,11 +1,11 @@
-import { FaBars, FaShoppingCart, FaHome, FaThLarge, FaHeart, FaUser } from "react-icons/fa";
+import { FaShoppingCart, FaHome, FaThLarge, FaHeart, FaUser } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 import { useTheme } from "../context/ThemeContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./Header.css";
 
-function Header({ openCategory }) {
+function Header() {
   const { cart } = useCart();
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
@@ -32,7 +32,6 @@ function Header({ openCategory }) {
       <div className="header-inner">
         {/* LEFT SECTION */}
         <div className="header-left">
-          <FaBars className="menu-icon" onClick={openCategory} />
           <h2 className="logo" onClick={() => navigate("/")}>
             WebnApp
           </h2>
