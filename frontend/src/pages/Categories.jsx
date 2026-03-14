@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import "./Categories.css";
 
 function SideCategory({ visible, close }) {
   const navigate = useNavigate();
