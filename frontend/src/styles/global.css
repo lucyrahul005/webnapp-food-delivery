@@ -215,23 +215,10 @@ input::placeholder {
   color: #d1d5db;
 }
 
-/* ================= DESKTOP LAYOUT (1024px and above) ================= */
-@media (min-width: 1025px) {
-  .main-wrapper {
-    padding: 80px 40px 20px 40px;
-  }
-  
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .search-container {
-    width: 40%;
-    display: flex;
-    align-items: center;
-  }
+/* ================= MAIN LAYOUT ================= */
+/* Desktop styles are DEFAULT - mobile overrides use max-width media queries */
+.main-wrapper {
+  padding: 80px 40px 20px 40px;
 }
 
 /* Container */
@@ -580,12 +567,20 @@ h3 {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
+  .main-wrapper {
+    padding: 60px 20px 20px 20px;
+  }
+  
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
+  .main-wrapper {
+    padding: 60px 12px 20px 12px;
+  }
+  
   .products-grid {
     grid-template-columns: 1fr;
   }
