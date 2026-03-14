@@ -36,11 +36,14 @@
 /* ================= BASE ================= */
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 html, body, #root {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -50,6 +53,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -170,12 +174,13 @@ body {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Form elements */
+/* ================= FORM ELEMENTS (Desktop First) ================= */
 input,
 textarea,
 select {
   font-family: inherit;
   font-size: 1rem;
+  width: 100%;
 }
 
 input[type='text'],
@@ -185,12 +190,11 @@ input[type='number'],
 input[type='tel'],
 textarea,
 select {
-  width: 100%;
   padding: 0.75rem 1rem;
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
-  background: white;
-  color: #111827;
+  background: var(--bg);
+  color: var(--text);
   transition: all 0.3s ease;
 }
 
@@ -204,11 +208,30 @@ select:focus {
   outline: none;
   border-color: #ff6b35;
   box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-  background: white;
+  background: var(--bg);
 }
 
 input::placeholder {
   color: #d1d5db;
+}
+
+/* ================= DESKTOP LAYOUT (1024px and above) ================= */
+@media (min-width: 1025px) {
+  .main-wrapper {
+    padding: 80px 40px 20px 40px;
+  }
+  
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .search-container {
+    width: 40%;
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* Container */
