@@ -4,6 +4,7 @@ import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import { API_URL } from "../config/api";
 import "./AdminDashboard.css";
+import "./RiderDashboard.css";
 
 const RIDER_SECTIONS = [
   { id: "dashboard", label: "Rider Dashboard" },
