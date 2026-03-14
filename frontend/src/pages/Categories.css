@@ -1,34 +1,45 @@
+/* Desktop First - Base Styles */
 .categories-container {
   padding: 120px 5% 100px 5%;
-  background: #f3f3f3;
+  background: var(--bg);
+  color: var(--text);
   min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .categories-container h2 {
   margin-bottom: 25px;
+  color: var(--text);
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .category-card {
-  background: #fff;
+  background: var(--card);
+  border: 1px solid var(--border);
   padding: 40px 20px;
   text-align: center;
   font-weight: 600;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  color: var(--text);
 }
 
 .category-card:hover {
-  background: #000;
-  color: #fff;
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
   transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(255, 107, 53, 0.2);
 }
 
 /* ============================================

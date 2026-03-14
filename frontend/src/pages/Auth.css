@@ -1,11 +1,12 @@
 .auth-wrapper {
   min-height: 100vh;
-  background: linear-gradient(to right, #eef2f7, #d9e2ec);
+  background: var(--bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  transition: background 0.3s ease;
 }
 
 /* LOGO STYLE */
@@ -14,75 +15,90 @@
   font-weight: 700;
   margin-bottom: 25px;
   letter-spacing: 1px;
+  color: var(--text);
 }
 
 .auth-logo span {
-  color: #000;
+  color: var(--accent);
   font-weight: 900;
 }
 
 /* CARD */
 .auth-card {
-  background: #ffffff;
+  background: var(--card);
+  border: 1px solid var(--border);
   width: 100%;
   max-width: 420px;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .auth-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
 }
 
 .auth-card h2 {
   margin-bottom: 25px;
   font-weight: 600;
+  color: var(--text);
 }
 
 .auth-card input {
   width: 100%;
   padding: 14px;
   margin-bottom: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 8px;
   outline: none;
   font-size: 14px;
-  transition: 0.2s ease;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.2s ease;
 }
 
 .auth-card input:focus {
-  border-color: #000;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+}
+
+.auth-card input::placeholder {
+  color: var(--text);
+  opacity: 0.5;
 }
 
 .auth-card button {
   width: 100%;
   padding: 14px;
-  background: #000;
-  color: #fff;
+  background: var(--accent);
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
-  transition: 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .auth-card button:hover {
-  background: #222;
+  opacity: 0.9;
   transform: translateY(-2px);
 }
 
 .toggle-text {
   margin-top: 20px;
   font-size: 14px;
+  color: var(--text);
 }
 
 .toggle-text span {
-  color: #000;
+  color: var(--accent);
   font-weight: 600;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .toggle-text span:hover {
