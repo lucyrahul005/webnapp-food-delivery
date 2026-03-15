@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Success from "./pages/Success";
 import Home from "./pages/Home";
-import UserResponsiveDashboard from "./pages/UserResponsiveDashboard";
 import Products from "./pages/Products";
 import Register from "./pages/Register";
 import Orders from "./pages/Orders";
@@ -83,7 +82,7 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={
           <ProtectedUserRoute>
-            <UserResponsiveDashboard />
+            <Home />
           </ProtectedUserRoute>
         } />
 
