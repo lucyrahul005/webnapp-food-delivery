@@ -389,11 +389,16 @@
   }
 
   .navbar-links {
+    display: none;
     gap: 1.5rem;
   }
 
   .nav-link {
     font-size: 0.9rem;
+  }
+
+  .navbar-right {
+    gap: 0.75rem;
   }
 
   .phone-button {
@@ -404,12 +409,15 @@
 /* Mobile: 480px and below */
 @media (max-width: 480px) {
   .navbar-container {
+    flex-wrap: wrap;
+    align-content: flex-start;
     padding: 0.4rem 0.5rem;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .navbar-logo {
     gap: 0.2rem;
+    order: 1;
   }
 
   .logo-text {
@@ -422,7 +430,10 @@
   }
 
   .navbar-search {
-    max-width: 150px;
+    max-width: none;
+    flex: 1;
+    order: 2;
+    min-width: 150px;
   }
 
   .search-form {
@@ -445,17 +456,57 @@
   }
 
   .navbar-links {
-    gap: 1rem;
+    display: none;
   }
 
-  .nav-link {
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+  .navbar-right {
+    order: 3;
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.4rem 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 0.4rem;
+  }
+
+  .navbar-right::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .navbar-right::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  .navbar-right::-webkit-scrollbar-thumb {
+    background: #ff6b35;
+    border-radius: 10px;
+  }
+
+  .navbar-right::-webkit-scrollbar-thumb:hover {
+    background: #ff8c42;
+  }
+
+  .cart-button,
+  .notification-button,
+  .wishlist-button,
+  .account-button,
+  .dark-mode-btn {
+    flex-shrink: 0;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .profile-section {
     display: flex;
     gap: 0.5rem;
+    flex-shrink: 0;
   }
 
   .profile-btn {
