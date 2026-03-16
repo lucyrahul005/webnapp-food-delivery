@@ -267,11 +267,17 @@
   }
 
   .search-container button {
-    padding: 4px 6px;
+    padding: 0;
+    margin: 0;
     font-size: 10px;
     width: 35px;
+    height: 28px;
     flex-shrink: 0;
     white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Show all nav items with horizontal scroll */
@@ -483,13 +489,19 @@
   }
 
   .search-container button {
-    padding: 4px 6px;
+    padding: 0;
+    margin: 0;
     font-size: 10px;
     border-radius: 6px;
     font-weight: 600;
     width: 35px;
+    height: 28px;
     flex-shrink: 0;
     white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Buttons and nav - horizontal scrollable row */
