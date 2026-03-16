@@ -250,14 +250,16 @@
   }
 
   .search-container {
+    display: flex;
+    align-items: center;
     width: 100%;
     flex-shrink: 0;
     padding: 6px 8px;
     box-sizing: border-box;
+    gap: 4px;
     background: var(--bg);
     border: none;
     border-bottom: 1px solid var(--border);
-    gap: 4px;
   }
 
   .search-container input {
@@ -472,10 +474,13 @@
 
   /* Search bar - full width */
   .search-container {
+    display: flex;
+    align-items: center;
     width: 100%;
     flex-shrink: 0;
     padding: 8px 8px;
     box-sizing: border-box;
+    gap: 4px;
     border-radius: 0;
     background: var(--bg);
     border: none;
