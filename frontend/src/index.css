@@ -94,6 +94,12 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+@media (max-width: 480px) {
+  body {
+    padding-top: 140px;
+  }
+}
+
 /* ================= IMAGES ================= */
 img {
   max-width: 100%;
