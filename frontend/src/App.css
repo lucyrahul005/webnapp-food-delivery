@@ -69,6 +69,7 @@ h1, h2, h3 {
   flex: 1;
   background: var(--bg);
   transition: background 0.3s ease;
+  margin-top: 70px;
 }
 
 button {
@@ -77,4 +78,17 @@ button {
 
 button:hover {
   transform: translateY(-2px);
+}
+
+/* Mobile navbar offset adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-top: 120px;
+  }
 }
