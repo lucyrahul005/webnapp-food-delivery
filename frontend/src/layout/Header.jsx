@@ -13,20 +13,18 @@ function Header() {
   const [search, setSearch] = useState("");
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollYRef = useRef(0);
+  const previousScrollYRef = useRef(0);
   const headerRef = useRef(null);
 
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
-      lastScrollYRef.current = window.scrollY;
+      const currentScrollY = window.scrollY;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const currentScrollY = lastScrollYRef.current;
-          const previousScrollY = lastScrollYRef.current;
-
-          if (currentScrollY > previousScrollY && currentScrollY > 100) {
+          if (currentScrollY > previousScrollYRef.current && currentScrollY > 100) {
             // Scrolling down - hide navbar
             setIsVisible(false);
           } else {
@@ -34,6 +32,7 @@ function Header() {
             setIsVisible(true);
           }
 
+          previousScrollYRef.current = currentScrollY;
           ticking = false;
         });
         ticking = true;
@@ -86,7 +85,10 @@ function Header() {
         {/* RIGHT SECTION */}
         <div className="header-right">
           {/* NAVIGATION LINKS */}
-          <nav className="header-nav">
+          <nav
+            className="header-nav"
+            style={{ background: "rgba(255, 60, 60, 0.2)", border: "1px dashed rgba(255, 60, 60, 0.9)", padding: "2px 4px" }}
+          >
             <button 
               className={`nav-link ${isActive("/") ? "active" : ""}`}
               onClick={() => navigate("/")}

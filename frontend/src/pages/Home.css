@@ -4,6 +4,7 @@
   background: var(--bg);
   overflow-x: hidden;
   transition: background 0.3s ease;
+  padding-top: 0;
 }
 
 /* Hero Section */
@@ -456,6 +457,10 @@
 }
 
 @media (max-width: 768px) {
+  .home-premium {
+    padding-top: 140px;
+  }
+
   .hero-section {
     min-height: 500px;
   }
@@ -503,6 +508,10 @@
 }
 
 @media (max-width: 640px) {
+  .home-premium {
+    padding-top: 140px;
+  }
+
   .hero-section {
     min-height: 400px;
   }
