@@ -174,13 +174,15 @@ function PremiumAdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [darkMode, setDarkMode] = useState(true);
   const [toast, setToast] = useState(null);
-  const [loadingData, setLoadingData] = useState(true); // Start with loading = true
+  const [loadingData, setLoadingData] = useState(true);
+  const [activeSection, setActiveSection] = useState("dashboard"); // Active section state
 
   // Data states
   const [stats, setStats] = useState(null);
   const [orders, setOrders] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [users, setUsers] = useState([]);
+  const [riders, setRiders] = useState([]);
 
   const authHeaders = useMemo(
     () => ({ headers: { Authorization: `Bearer ${token}` } }),
@@ -190,17 +192,19 @@ function PremiumAdminDashboard() {
   // Fetch dashboard data
   const fetchDashboardData = async () => {
     try {
-      const [statsRes, ordersRes, restaurantsRes, usersRes] = await Promise.all([
+      const [statsRes, ordersRes, restaurantsRes, usersRes, ridersRes] = await Promise.all([
         axios.get(`${API_URL}/api/admin/stats`, authHeaders).catch(() => ({ data: null })),
         axios.get(`${API_URL}/api/admin/orders`, authHeaders).catch(() => ({ data: [] })),
         axios.get(`${API_URL}/api/admin/restaurants`, authHeaders).catch(() => ({ data: [] })),
         axios.get(`${API_URL}/api/admin/users`, authHeaders).catch(() => ({ data: [] })),
+        axios.get(`${API_URL}/api/admin/riders/pending`, authHeaders).catch(() => ({ data: [] })),
       ]);
 
       setStats(statsRes?.data || null);
       setOrders(Array.isArray(ordersRes?.data) ? ordersRes.data : []);
       setRestaurants(Array.isArray(restaurantsRes?.data) ? restaurantsRes.data : []);
       setUsers(Array.isArray(usersRes?.data) ? usersRes.data : []);
+      setRiders(Array.isArray(ridersRes?.data) ? ridersRes.data : []);
       setLoadingData(false); // Set loading to false AFTER data is set
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
@@ -256,18 +260,21 @@ function PremiumAdminDashboard() {
         </div>
 
         <nav className="sidebar-nav">
-          {menuItems.map((item, idx) => (
-            <motion.a
-              key={idx}
-              href="#"
-              whileHover={{ x: 5 }}
-              className="nav-item"
-              onClick={(e) => e.preventDefault()}
-            >
-              <span className="nav-icon">{item.icon}</span>
-              {sidebarOpen && <span className="nav-label">{item.label}</span>}
-            </motion.a>
-          ))}
+          {menuItems.map((item, idx) => {
+            const sectionId = item.label.toLowerCase();
+            const isActive = activeSection === sectionId;
+            return (
+              <motion.button
+                key={idx}
+                whileHover={{ x: 5 }}
+                className={`nav-item ${isActive ? "active" : ""}`}
+                onClick={() => setActiveSection(sectionId)}
+              >
+                <span className="nav-icon">{item.icon}</span>
+                {sidebarOpen && <span className="nav-label">{item.label}</span>}
+              </motion.button>
+            );
+          })}
         </nav>
 
         <button className="logout-btn" onClick={logout}>
@@ -388,11 +395,14 @@ function PremiumAdminDashboard() {
             </>
           ) : (
             <>
-              {/* Page Title */}
-              <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
-                <h1>Dashboard Overview</h1>
-                <p>Welcome back, Admin! Here's your platform's performance.</p>
-              </motion.div>
+              {/* DASHBOARD SECTION */}
+              {activeSection === "dashboard" && (
+                <>
+                  {/* Page Title */}
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back, Admin! Here's your platform's performance.</p>
+                  </motion.div>
 
               {/* KPI Cards */}
               <motion.div
@@ -543,6 +553,176 @@ function PremiumAdminDashboard() {
                   <p className="stat-value">4.8</p>
                 </div>
               </motion.div>
+                </>
+              )}
+
+              {/* ORDERS SECTION */}
+              {activeSection === "orders" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Orders Management</h1>
+                    <p>Manage all food orders from customers.</p>
+                  </motion.div>
+                  <RecentOrdersTable orders={orders} />
+                </>
+              )}
+
+              {/* RESTAURANTS SECTION */}
+              {activeSection === "restaurants" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Restaurants Management</h1>
+                    <p>Manage all partner restaurants.</p>
+                  </motion.div>
+                  <TopRestaurants restaurants={restaurants} />
+                </>
+              )}
+
+              {/* RIDERS SECTION */}
+              {activeSection === "riders" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Delivery Partners</h1>
+                    <p>Manage delivery partners and assignments.</p>
+                  </motion.div>
+                  <motion.div className="glass-card">
+                    <div className="card-header">
+                      <h3>🚴 Active Riders ({riders.length})</h3>
+                    </div>
+                    <div className="table-wrapper">
+                      <table className="orders-table">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Status</th>
+                            <th>Rating</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {riders.length > 0 ? riders.map(rider => (
+                            <tr key={rider._id}>
+                              <td>#{rider._id?.slice(-6) || 'N/A'}</td>
+                              <td>{rider.name || 'N/A'}</td>
+                              <td>{rider.phone || 'N/A'}</td>
+                              <td><span className="status-badge badge-delivered">✓ Active</span></td>
+                              <td>⭐ {rider.rating || 4.5}</td>
+                            </tr>
+                          )) : (
+                            <tr><td colSpan="5" style={{textAlign: 'center', padding: '2rem'}}>No riders found</td></tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </motion.div>
+                </>
+              )}
+
+              {/* USERS SECTION */}
+              {activeSection === "users" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Users Management</h1>
+                    <p>Manage all platform users and accounts.</p>
+                  </motion.div>
+                  <motion.div className="glass-card">
+                    <div className="card-header">
+                      <h3>👥 All Users ({users.length})</h3>
+                    </div>
+                    <div className="table-wrapper">
+                      <table className="orders-table">
+                        <thead>
+                          <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {users.length > 0 ? users.map(user => (
+                            <tr key={user._id}>
+                              <td>#{user._id?.slice(-6) || 'N/A'}</td>
+                              <td>{user.name || 'N/A'}</td>
+                              <td>{user.email || 'N/A'}</td>
+                              <td>{user.phone || 'N/A'}</td>
+                              <td><span className="status-badge badge-delivered">✓ Active</span></td>
+                            </tr>
+                          )) : (
+                            <tr><td colSpan="5" style={{textAlign: 'center', padding: '2rem'}}>No users found</td></tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+                  </motion.div>
+                </>
+              )}
+
+              {/* PAYMENTS SECTION */}
+              {activeSection === "payments" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Payments Management</h1>
+                    <p>View all payment transactions.</p>
+                  </motion.div>
+                  <motion.div className="glass-card">
+                    <div className="card-header">
+                      <h3>💳 Recent Transactions</h3>
+                    </div>
+                    <p style={{padding: '2rem', textAlign: 'center', color: 'var(--text-secondary)'}}>Payment section coming soon...</p>
+                  </motion.div>
+                </>
+              )}
+
+              {/* ANALYTICS SECTION */}
+              {activeSection === "analytics" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Analytics</h1>
+                    <p>View platform analytics and insights.</p>
+                  </motion.div>
+                  <motion.div className="glass-card">
+                    <div className="card-header">
+                      <h3>📈 Coming Soon</h3>
+                    </div>
+                    <p style={{padding: '2rem', textAlign: 'center', color: 'var(--text-secondary)'}}>Advanced analytics section coming soon...</p>
+                  </motion.div>
+                </>
+              )}
+
+              {/* REVIEWS SECTION */}
+              {activeSection === "reviews" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Reviews & Ratings</h1>
+                    <p>Manage customer reviews and ratings.</p>
+                  </motion.div>
+                  <motion.div className="glass-card">
+                    <div className="card-header">
+                      <h3>⭐ Reviews Section</h3>
+                    </div>
+                    <p style={{padding: '2rem', textAlign: 'center', color: 'var(--text-secondary)'}}>Reviews section coming soon...</p>
+                  </motion.div>
+                </>
+              )}
+
+              {/* SETTINGS SECTION */}
+              {activeSection === "settings" && (
+                <>
+                  <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="page-header">
+                    <h1>Settings</h1>
+                    <p>Configure admin dashboard settings.</p>
+                  </motion.div>
+                  <motion.div className="glass-card">
+                    <div className="card-header">
+                      <h3>⚙️ Settings</h3>
+                    </div>
+                    <p style={{padding: '2rem', textAlign: 'center', color: 'var(--text-secondary)'}}>Settings section coming soon...</p>
+                  </motion.div>
+                </>
+              )}
             </>
           )}
         </main>
