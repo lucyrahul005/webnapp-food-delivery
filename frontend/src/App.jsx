@@ -17,7 +17,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedUserRoute from "./components/ProtectedUserRoute";
-import NewAdminDashboard from "./pages/NewAdminDashboard";
+import PremiumAdminDashboard from "./pages/PremiumAdminDashboard";
 import Categories from "./pages/Categories";
 import Restaurants from "./pages/Restaurants";
 import RestaurantDetails from "./pages/RestaurantDetails";
@@ -64,7 +64,7 @@ function App() {
         path="/admin"
         element={
           <ProtectedAdminRoute>
-            <NewAdminDashboard />
+            <PremiumAdminDashboard />
           </ProtectedAdminRoute>
         }
       />
