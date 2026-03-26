@@ -36,6 +36,47 @@ const topFoodsData = [
 
 const COLORS = ["#8b5cf6", "#ec4899", "#06b6d4", "#f59e0b"];
 
+// ============ SKELETON LOADERS ============
+const SkeletonKPICard = () => (
+  <div className="kpi-card skeleton">
+    <div className="skeleton-icon"></div>
+    <div className="skeleton-content">
+      <div className="skeleton-line skeleton-title"></div>
+      <div className="skeleton-line skeleton-value"></div>
+      <div className="skeleton-line skeleton-change"></div>
+    </div>
+  </div>
+);
+
+const SkeletonChartCard = () => (
+  <div className="glass-card chart-card skeleton">
+    <div className="skeleton-header">
+      <div className="skeleton-line skeleton-chart-title"></div>
+    </div>
+    <div className="skeleton-chart"></div>
+  </div>
+);
+
+const SkeletonTableRow = () => (
+  <tr className="skeleton-row">
+    <td><div className="skeleton-line"></div></td>
+    <td><div className="skeleton-line"></div></td>
+    <td><div className="skeleton-line"></div></td>
+    <td><div className="skeleton-line"></div></td>
+    <td><div className="skeleton-line"></div></td>
+  </tr>
+);
+
+const SkeletonRestaurantCard = () => (
+  <div className="restaurant-item skeleton">
+    <div className="skeleton-rank"></div>
+    <div className="skeleton-image"></div>
+    <div className="skeleton-line skeleton-rest-name"></div>
+    <div className="skeleton-line skeleton-rest-stats"></div>
+    <div className="skeleton-line skeleton-rest-revenue"></div>
+  </div>
+);
+
 // ============ KPI CARD COMPONENT ============
 const KPICard = ({ icon, title, value, change, gradient }) => (
   <motion.div
@@ -133,7 +174,7 @@ function PremiumAdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [darkMode, setDarkMode] = useState(true);
   const [toast, setToast] = useState(null);
-  const [loadingData, setLoadingData] = useState(false);
+  const [loadingData, setLoadingData] = useState(true); // Start with loading = true
 
   // Data states
   const [stats, setStats] = useState(null);
@@ -148,7 +189,6 @@ function PremiumAdminDashboard() {
 
   // Fetch dashboard data
   const fetchDashboardData = async () => {
-    setLoadingData(true);
     try {
       const [statsRes, ordersRes, restaurantsRes, usersRes] = await Promise.all([
         axios.get(`${API_URL}/api/admin/stats`, authHeaders).catch(() => ({ data: null })),
@@ -157,14 +197,14 @@ function PremiumAdminDashboard() {
         axios.get(`${API_URL}/api/admin/users`, authHeaders).catch(() => ({ data: [] })),
       ]);
 
-      setStats(statsRes.data);
-      setOrders(ordersRes.data);
-      setRestaurants(restaurantsRes.data);
-      setUsers(usersRes.data);
+      setStats(statsRes?.data || null);
+      setOrders(Array.isArray(ordersRes?.data) ? ordersRes.data : []);
+      setRestaurants(Array.isArray(restaurantsRes?.data) ? restaurantsRes.data : []);
+      setUsers(Array.isArray(usersRes?.data) ? usersRes.data : []);
+      setLoadingData(false); // Set loading to false AFTER data is set
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
       setToast({ message: "Error loading dashboard data", type: "error" });
-    } finally {
       setLoadingData(false);
     }
   };
@@ -174,8 +214,10 @@ function PremiumAdminDashboard() {
       fetchDashboardData();
       const interval = setInterval(fetchDashboardData, 30000);
       return () => clearInterval(interval);
+    } else {
+      setLoadingData(false); // If no token, stop loading
     }
-  }, [authHeaders, token]);
+  }, [token]);
 
   const logout = () => {
     sessionStorage.removeItem("token");
@@ -273,10 +315,77 @@ function PremiumAdminDashboard() {
         {/* ============ DASHBOARD CONTENT ============ */}
         <main className="dashboard-content">
           {loadingData ? (
-            <div className="loading-container">
-              <div className="loading-spinner"></div>
-              <p>Loading dashboard...</p>
-            </div>
+            <>
+              {/* Skeleton Page Header */}
+              <div className="page-header skeleton-header">
+                <div className="skeleton-line skeleton-title-lg"></div>
+                <div className="skeleton-line skeleton-subtitle"></div>
+              </div>
+
+              {/* Skeleton KPI Cards */}
+              <div className="kpi-grid">
+                <SkeletonKPICard />
+                <SkeletonKPICard />
+                <SkeletonKPICard />
+                <SkeletonKPICard />
+                <SkeletonKPICard />
+              </div>
+
+              {/* Skeleton Charts */}
+              <div className="charts-grid">
+                <SkeletonChartCard />
+                <SkeletonChartCard />
+              </div>
+
+              {/* Skeleton Tables and Cards */}
+              <div className="bottom-section">
+                <div className="glass-card chart-card skeleton">
+                  <div className="skeleton-header">
+                    <div className="skeleton-line skeleton-chart-title"></div>
+                  </div>
+                  <table className="orders-table skeleton-table">
+                    <tbody>
+                      <SkeletonTableRow />
+                      <SkeletonTableRow />
+                      <SkeletonTableRow />
+                      <SkeletonTableRow />
+                      <SkeletonTableRow />
+                    </tbody>
+                  </table>
+                </div>
+                <div className="glass-card skeleton">
+                  <div className="skeleton-header">
+                    <div className="skeleton-line skeleton-chart-title"></div>
+                  </div>
+                  <div className="restaurants-grid">
+                    <SkeletonRestaurantCard />
+                    <SkeletonRestaurantCard />
+                    <SkeletonRestaurantCard />
+                    <SkeletonRestaurantCard />
+                  </div>
+                </div>
+              </div>
+
+              {/* Skeleton Quick Stats */}
+              <div className="quick-stats">
+                <div className="glass-card stat-box skeleton">
+                  <div className="skeleton-line skeleton-short"></div>
+                  <div className="skeleton-line skeleton-value"></div>
+                </div>
+                <div className="glass-card stat-box skeleton">
+                  <div className="skeleton-line skeleton-short"></div>
+                  <div className="skeleton-line skeleton-value"></div>
+                </div>
+                <div className="glass-card stat-box skeleton">
+                  <div className="skeleton-line skeleton-short"></div>
+                  <div className="skeleton-line skeleton-value"></div>
+                </div>
+                <div className="glass-card stat-box skeleton">
+                  <div className="skeleton-line skeleton-short"></div>
+                  <div className="skeleton-line skeleton-value"></div>
+                </div>
+              </div>
+            </>
           ) : (
             <>
               {/* Page Title */}
