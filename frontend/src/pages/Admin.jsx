@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { getImageUrl } from "../utils/imageHelper";
 import { API_URL } from "../config/api";
-import "./AdminDashboard.css";
 import {
   LineChart,
   Line,
